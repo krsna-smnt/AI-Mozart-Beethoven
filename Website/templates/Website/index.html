@@ -33,17 +33,33 @@
 	</div>
 </div>
 
-{% for song in audios %}
 <div class="container">
 	<div class="row">
-		<a href="#" onClick="MIDIjs.play('{{ song.audio.url }}');">Play</a>
-	</div>
-	<div class="row">
-		<a href="#" onClick="MIDIjs.stop();">Stop</a>
+		{% if song %}
+		<button id='butt' class='btn btn-success' onClick="operate()">Play</button>
+		{% endif %}
 	</div>
 </div>
-{% endfor %}
 
 	<script type='text/javascript' src='http://www.midijs.net/lib/midi.js'></script>
+	<script type="text/javascript">
+		function operate()
+		{
+			if($('#butt').text() == 'Play')
+			{
+				MIDIjs.play('{{ song.audio.url }}');
+				$('#butt').removeClass('btn-success');
+				$('#butt').addClass('btn-danger');
+				$('#butt').text('Stop');
+			}
+			else
+			{
+				MIDIjs.stop();
+				$('#butt').removeClass('btn-danger');
+				$('#butt').addClass('btn-success');
+				$('#butt').text('Play');	
+			}
+		}
+	</script>
 
 {% endblock %}
