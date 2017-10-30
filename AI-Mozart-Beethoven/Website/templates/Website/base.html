@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	{% block title %}{% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
+
+	<script type="text/javascript" href="{% static 'Website/js/scripts.js' %}"></script>
+
+</head>
+<body>
+    <div class='container-fluid' id='navbarhome'>
+        <nav class='navbar navbar-inverse navbar-fixed-top'>
+            <div class='navbar-header'>
+                    <a class='navbar-brand' href='{% url "index" %}'>Music AI</a>
+            </div>
+
+            <div class='collapse navbar-collapse' id='topnavbar'>
+                <ul class='nav navbar-nav'>
+                    <li>
+                        <form class='navbar-form' style='margin-left: 360px;' action="" method="get">
+                            <input class='form-control' type="text" name="search">
+                            <button class='btn btn-info' class="form-control">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
