@@ -1,5 +1,4 @@
 {% extends 'Website/base.html' %}
-{% load staticfiles %}
 
 {% block title %}
 	<title>Music</title>
@@ -39,23 +38,33 @@
 	<div class="row">
 		<h3><span id="MIDIjs.message" style="color: green">Initializing ...</span></h3>
 	</div>
-</div>
-<br>
-<div class="container">
-	<div class="ui labeled icon buttons">
-	  <button class="ui button" onClick="MIDIjs.play('{{ song.audio.url }}');">
-	    <i class="play icon"></i>
-	    Play
-	  </button>
-	  <button class="ui button" onClick="MIDIjs.stop();">
-	    <i class="stop icon"></i>
-	    Stop
-	  </button>
+	<div class="row">
+		{% if song %}
+		<button id='butt' class='btn btn-success' onClick="operate()">Play</button>
+		{% endif %}
 	</div>
 </div>
-
 {% endfor %}
 
 	<script type='text/javascript' src='http://www.midijs.net/lib/midi.js'></script>
-	<script type='text/javascript' src="{% static 'js/scripts.js' %}"></script>
+	<script type="text/javascript">
+		function operate()
+		{
+			if($('#butt').text() == 'Play')
+			{
+				MIDIjs.play('{{ song.audio.url }}');
+				$('#butt').removeClass('btn-success');
+				$('#butt').addClass('btn-danger');
+				$('#butt').text('Stop');
+			}
+			else
+			{
+				MIDIjs.stop();
+				$('#butt').removeClass('btn-danger');
+				$('#butt').addClass('btn-success');
+				$('#butt').text('Play');	
+			}
+		}
+	</script>
+
 {% endblock %}

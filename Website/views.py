@@ -31,4 +31,9 @@ def index(request):
 	form = MusicForm()
 	audios = Music.objects.all()
 
-	return render(request, 'Website/index.html', {'audios': audios, 'form': form})
+	if audios:
+		song = audios[0]
+	else:
+		song = audios
+
+	return render(request, 'Website/index.html', {'song': song, 'form': form})
