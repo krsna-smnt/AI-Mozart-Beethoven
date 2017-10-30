@@ -10,19 +10,23 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 
 def index(request):
+	audios = Music.objects.all()
+	audios.delete()
+
 	if request.method == 'POST':
 		form = MusicForm(request.POST, request.FILES)
 		if form.is_valid():
 			# form.save()
 			song = Music(audio = request.FILES['audio'])
 
-			mdiurl = 'media/'
-			mdiurl += song.audio.url
-			mdiurl = mdiurl.replace("/media/", "", 1)
+			# mdiurl = 'media/'
+			# mdiurl += song.audio.url
+			# mdiurl = mdiurl.replace("/media/", "", 1)
 
 			song.save()
-			pyprgm.play(mdiurl)
-			song.delete()
+
+			# pyprgm.play(mdiurl)			     
+			# song.delete()
 	
 	form = MusicForm()
 	audios = Music.objects.all()
