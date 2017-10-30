@@ -4,6 +4,7 @@ tested with Python273/331 and pygame192 by vegaseat
 '''
 
 import pygame as pg
+import multiprocessing
 
 def play_music(music_file):
     '''
@@ -40,4 +41,4 @@ def play(file):
 	except KeyboardInterrupt:
 	    pg.mixer.music.fadeout(1000)
 	    pg.mixer.music.stop()
-	    # raise SystemExit
+	    raise SystemExit

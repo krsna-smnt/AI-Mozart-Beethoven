@@ -33,4 +33,17 @@
 	</div>
 </div>
 
+{% for song in audios %}
+<div class="container">
+	<div class="row">
+		<a href="#" onClick="MIDIjs.play('{{ song.audio.url }}');">Play</a>
+	</div>
+	<div class="row">
+		<a href="#" onClick="MIDIjs.stop();">Stop</a>
+	</div>
+</div>
+{% endfor %}
+
+	<script type='text/javascript' src='http://www.midijs.net/lib/midi.js'></script>
+
 {% endblock %}
