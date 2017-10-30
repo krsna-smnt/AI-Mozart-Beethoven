@@ -28,15 +28,3 @@ def index(request):
 	audios = Music.objects.all()
 
 	return render(request, 'Website/index.html', {'audios': audios, 'form': form})
-
-
-# def play(request, songid):
-# 	song = Music.objects.get(pk=songid)
-	
-# 	link = song.audio.url.replace("/media/", "", 1)
-	
-# 	print link
-
-# 	pyprgm.play(link)
-
-# 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
