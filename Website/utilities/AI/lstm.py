@@ -101,7 +101,7 @@ if len(sys.argv)==3:
 
 
 data_ = ""
-with open('data/shakespeare.txt', 'r') as f:
+with open('data/moz.mid', 'r') as f:
 	data_ += f.read()
 data_ = data_.lower()
 
@@ -116,7 +116,7 @@ num_layers = 2
 batch_size = 64 #128
 time_steps = 100 #50
 
-NUM_TRAIN_BATCHES = 600 #default 20000 but for christs sake lets make it 500
+NUM_TRAIN_BATCHES = 100 #default 20000 but for christs sake lets make it 500
 
 LEN_TEST_TEXT = 10000 # Number of test characters of text to generate after training the network
 
