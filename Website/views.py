@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from .forms import MusicForm
 from .models import Music
-from utilities import pyprgm
+# from utilities import pyprgm
 from django.http import HttpResponseRedirect
 import os
 
@@ -16,10 +16,11 @@ def index(request):
 	return render(request, 'Website/index.html', {})
 
 def play_it(request):
-	os.system("th sample.lua cv/epoch")
+	os.system("ls")
+	os.system("th shiz.lua cv/lm_lstm_epoch33.77_0.7266.t7")
 	os.system("ruby txt_to_midi.rb ip.txt")
 
-	urll = ""
+	urll = "/home/mozart/char-rnn/"
 
 	return render(request, 'Website/play_it.html', {'urll': urll})
     # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
