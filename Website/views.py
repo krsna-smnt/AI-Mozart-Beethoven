@@ -16,7 +16,8 @@ def index(request):
 	return render(request, 'Website/index.html', {})
 
 def play_it(request):
-	os.system("ls")
+	os.system("cd ..")
+	os.system("cd 'char-rnn'")
 	os.system("th shiz.lua cv/lm_lstm_epoch33.77_0.7266.t7")
 	os.system("ruby txt_to_midi.rb ip.txt")
 
