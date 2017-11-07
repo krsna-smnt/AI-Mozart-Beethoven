@@ -8,13 +8,13 @@
 
 <div class="container">
 	<div class="row">
-		<a href='{% url 'play_it' %}' id='butt' class='btn btn-danger'>Generate Music</a>
+		<a href='{% url 'play_it' %}' class='btn btn-danger'>Generate Music</a>
 	</div>
 </div>
 
 <div class="container">
 	<div class="row">
-		<a href='{% url 'index' %}' id='butt' class='btn btn-danger'>Home</a>
+		<a href='{% url 'index' %}' class='btn btn-danger'>Home</a>
 	</div>
 </div>
 
@@ -31,7 +31,7 @@
 	{
 		if($('#butt').text() == 'Play')
 		{
-			MIDIjs.play('{{ urll }}');
+			MIDIjs.play('/media/output.mid');
 			$('#butt').removeClass('btn-success');
 			$('#butt').addClass('btn-danger');
 			$('#butt').text('Stop');

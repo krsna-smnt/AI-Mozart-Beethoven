@@ -24,4 +24,4 @@ def play_it(request):
 	urll = "/home/mozart/char-rnn/"
 
 	# return render(request, 'Website/play_it.html', {'urll': urll})
-    # return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
