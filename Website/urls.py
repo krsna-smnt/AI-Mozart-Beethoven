@@ -19,5 +19,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    # url(r'^play/(?P<songid>[0-9]+)$', views.play, name='play'),
+    url(r'^play_it/$', views.play_it, name='play_it'),
 ]
